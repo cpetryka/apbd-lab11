@@ -9,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();
+
 builder.Services.AddDbContext<ApplicationContext>(
     options => options.UseSqlServer("Name=ConnectionStrings:Default"));
 
